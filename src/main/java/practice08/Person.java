@@ -22,4 +22,9 @@ public class Person {
     public String introduce(){
         return "My name is "+this.name+". I am "+this.age+" years old.";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.id == ((Person)obj).id;
+    }
 }
