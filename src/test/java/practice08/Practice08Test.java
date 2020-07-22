@@ -58,51 +58,51 @@ public class Practice08Test {
         assertThat(tom.getAge()).isEqualTo(21);
         assertThat(tom.getKlass()).isEqualTo(klass);
     }
-//
-//    @Test
-//    public void should_student_introduce_with_class() throws Exception {
-//        Student tom = new Student(1, "Tom", 21, klass);
-//        assertThat(tom.introduce()).isEqualTo("My name is Tom. I am 21 years old. I am a Student. I am at Class 2.");
-//    }
-//
-//    @Test
-//    public void should_student_introduce_itself_as_class_leader() throws Exception {
-//        Student tom = new Student(1, "Tom", 21, klass);
-//        klass.assignLeader(tom);
-//        assertThat(tom.introduce()).isEqualTo("My name is Tom. I am 21 years old. I am a Student. I am Leader of Class 2.");
-//    }
-//
-//    @Test
-//    public void should_teacher_have_name_and_age_and_class() throws Exception {
-//        Teacher tom = new Teacher(1, "Tom", 21, klass);
-//        assertThat(tom.getName()).isEqualTo("Tom");
-//        assertThat(tom.getAge()).isEqualTo(21);
-//        assertThat(tom.getKlass()).isEqualTo(klass);
-//    }
-//
-//    @Test
-//    public void should_teacher_introduce_itself_with_which_class_it_teaches() throws Exception {
-//        Teacher tom = new Teacher(1, "Tom", 21, klass);
-//        assertThat(tom.introduce()).isEqualTo("My name is Tom. I am 21 years old. I am a Teacher. I teach Class 2.");
-//    }
-//
-//    @Test
-//    public void should_teacher_introduce_itself_with_no_class_teaching() throws Exception {
-//        Teacher tom = new Teacher(1, "Tom", 21);
-//        assertThat(tom.introduce()).isEqualTo("My name is Tom. I am 21 years old. I am a Teacher. I teach No Class.");
-//    }
-//
-//    @Test
-//    public void should_teacher_introduce_a_student_it_teaches() throws Exception {
-//        Teacher tom = new Teacher(1, "Tom", 21, klass);
-//        Student jerry = new Student(1, "Jerry", 8, klass);
-//        assertThat(tom.introduceWith(jerry)).isEqualTo("My name is Tom. I am 21 years old. I am a Teacher. I teach Jerry.");
-//    }
-//
-//    @Test
-//    public void should_teacher_introduce_a_student_it_does_not_teach() throws Exception {
-//        Teacher tom = new Teacher(1, "Tom", 21, new Klass(1));
-//        Student jerry = new Student(1, "Jerry", 8, new Klass(2));
-//        assertThat(tom.introduceWith(jerry)).isEqualTo("My name is Tom. I am 21 years old. I am a Teacher. I don't teach Jerry.");
-//    }
+
+    @Test
+    public void should_student_introduce_with_class() throws Exception {
+        Student tom = new Student(1, "Tom", 21, klass);
+        assertThat(tom.introduce()).isEqualTo("My name is Tom. I am 21 years old. I am a Student. I am at Class 2.");
+    }
+
+    @Test
+    public void should_student_introduce_itself_as_class_leader() throws Exception {
+        Student tom = new Student(1, "Tom", 21, klass);
+        klass.assignLeader(tom);
+        assertThat(tom.introduce()).isEqualTo("My name is Tom. I am 21 years old. I am a Student. I am Leader of Class 2.");
+    }
+
+    @Test
+    public void should_teacher_have_name_and_age_and_class() throws Exception {
+        Teacher tom = new Teacher(1, "Tom", 21, klass);
+        assertThat(tom.getName()).isEqualTo("Tom");
+        assertThat(tom.getAge()).isEqualTo(21);
+        assertThat(tom.getKlass()).isEqualTo(klass);
+    }
+
+    @Test
+    public void should_teacher_introduce_itself_with_which_class_it_teaches() throws Exception {
+        Teacher tom = new Teacher(1, "Tom", 21, klass);
+        assertThat(tom.introduce()).isEqualTo("My name is Tom. I am 21 years old. I am a Teacher. I teach Class 2.");
+    }
+
+    @Test
+    public void should_teacher_introduce_itself_with_no_class_teaching() throws Exception {
+        Teacher tom = new Teacher(1, "Tom", 21);
+        assertThat(tom.introduce()).isEqualTo("My name is Tom. I am 21 years old. I am a Teacher. I teach No Class.");
+    }
+
+    @Test
+    public void should_teacher_introduce_a_student_it_teaches() throws Exception {
+        Teacher tom = new Teacher(1, "Tom", 21, klass);
+        Student jerry = new Student(1, "Jerry", 8, klass);
+        assertThat(tom.introduceWith(jerry)).isEqualTo("My name is Tom. I am 21 years old. I am a Teacher. I teach Jerry.");
+    }
+
+    @Test
+    public void should_teacher_introduce_a_student_it_does_not_teach() throws Exception {
+        Teacher tom = new Teacher(1, "Tom", 21, new Klass(1));
+        Student jerry = new Student(1, "Jerry", 8, new Klass(2));
+        assertThat(tom.introduceWith(jerry)).isEqualTo("My name is Tom. I am 21 years old. I am a Teacher. I don't teach Jerry.");
+    }
 }
