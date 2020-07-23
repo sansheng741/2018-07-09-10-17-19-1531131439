@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Teacher extends Person implements Observer {
+public class Teacher extends Person {
     private LinkedList<Klass> classes;
 
     public Teacher(int id, String name, int age) {
@@ -14,10 +14,21 @@ public class Teacher extends Person implements Observer {
     public Teacher(int id, String name, int age, LinkedList<Klass> classes) {
         super(id, name, age);
         this.classes = classes;
+        for (int i = 0; i < classes.size(); i++) {
+            classes.get(i).addTeacher(this);
+        }
     }
 
     public LinkedList<Klass> getClasses() {
         return classes;
+    }
+
+    public void update_join(Student student){
+        System.out.print("I am "+this.name+". I know "+student.name+" has joined Class "+student.getKlass().getNumber()+".\n");
+    }
+
+    public void update_leader(Student student){
+        System.out.print("I am "+this.name+". I know "+student.name+" become Leader of Class "+student.getKlass().getNumber()+".\n");
     }
 
     @Override
@@ -52,9 +63,6 @@ public class Teacher extends Person implements Observer {
         return false;
     }
 
-    @Override
-    public void update(Observable o, Object arg) {
-        Klass klass = (Klass)o;
-        System.out.println();
-    }
+
+
 }

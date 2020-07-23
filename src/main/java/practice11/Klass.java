@@ -1,10 +1,13 @@
 package practice11;
 
-import java.util.Observable;
 
-public class Klass extends Observable {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Klass{
     private int number;
     private Student leader;
+    private List<Teacher> teacherList = new ArrayList<>();
 
     public Klass(int number) {
         this.number = number;
@@ -27,13 +30,20 @@ public class Klass extends Observable {
             System.out.print("It is not one of us.\n");
         }else {
             this.leader = student;
+            for (int i = 0; i < teacherList.size(); i++) {
+                teacherList.get(i).update_leader(student);
+            }
         }
+    }
+    public void addTeacher(Teacher teacher){
+        teacherList.add(teacher);
     }
 
     public Student appendMember(Student student){
         student.setKlass(this);
-        setChanged(); //表示目标对象已经做了修改
-        notifyObservers(student);
+        for (int i = 0; i < teacherList.size(); i++) {
+            teacherList.get(i).update_join(student);
+        }
         return student;
     }
 
